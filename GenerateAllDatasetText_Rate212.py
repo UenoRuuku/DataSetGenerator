@@ -8,13 +8,12 @@ Created on 2020/7/14
 """
 
 from CommonFunction import File_processing
-import os
+
 all_train = ""
 all_valid = ""
 all_test = ""
 
 
-folder = 'Dataset/ner_data/'
 
 def main():
     global all_test, all_train, all_valid, folder
@@ -70,9 +69,9 @@ def main():
             for ele in cate_dataset[int(len_cate_dataset *7/9) : ]:
                 cate_test += ele + '\n\n'
 
-            File_processing.write_TXTfile(folder + 'integrated_dataset/rate212' +categ_name + '_train_rate101.txt', cate_train)
-            File_processing.write_TXTfile(folder + 'integrated_dataset/rate212' +categ_name + '_valid_rate101.txt', cate_valid)
-            File_processing.write_TXTfile(folder + 'integrated_dataset/rate212' +categ_name + '_test_rate101.txt', cate_test)
+            File_processing.write_TXTfile(folder + 'integrated_dataset/' +categ_name + '_train.txt', cate_train)
+            File_processing.write_TXTfile(folder + 'integrated_dataset/' +categ_name + '_valid.txt', cate_valid)
+            File_processing.write_TXTfile(folder + 'integrated_dataset/' +categ_name + '_test.txt', cate_test)
 
 
         completed_categ.append(categ_name)
@@ -87,9 +86,9 @@ def main():
     for ele in all_test_list:
         all_test += ele + '\n\n'
 
-    File_processing.write_TXTfile(folder + 'integrated_dataset/' + 'all_train_rate101.txt',all_train)
-    File_processing.write_TXTfile(folder + 'integrated_dataset/' + 'all_valid_rate101.txt', all_valid)
-    File_processing.write_TXTfile(folder + 'integrated_dataset/' + 'all_test_rate101.txt',all_test)
+    File_processing.write_TXTfile(folder + 'integrated_dataset/' + 'all_train.txt',all_train)
+    File_processing.write_TXTfile(folder + 'integrated_dataset/' + 'all_valid.txt', all_valid)
+    File_processing.write_TXTfile(folder + 'integrated_dataset/' + 'all_test.txt',all_test)
 
 if __name__ == '__main__':
     main()
